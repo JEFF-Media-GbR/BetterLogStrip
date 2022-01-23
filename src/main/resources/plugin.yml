@@ -1,0 +1,16 @@
+name: BetterLogStrip
+main: com.jeff_media.betterlogstrip.BetterLogStrip
+version: ${project.version}
+authors:
+  - mfnalex
+  - JEFF Media GbR
+api-version: 1.14
+description: Improves stripped logs.
+commands:
+  betterlogstrip:
+    description: Reloads the configuration file
+    permission: betterlogstrip.reload
+permissions:
+  betterlogstrip.reload:
+    description: Allows to reload the configuration using /betterlogstrip
+    default: op

@@ -1,0 +1,23 @@
+###############################
+#       BetterLogStrip        #
+###############################
+
+# When enabled, players can no longer strip logs using right-click
+prevent-stripping: true
+
+crafting:
+  stripped-log: true # Turns 2 logs above each other into 2 stripped log
+  stripped-wood: true # Turns 2 wood above each other into 2 stripped wood
+
+stonecutter:
+  stripped-log: true # Turns unstripped logs into stripped logs
+  stripped-wood: true # Turns unstripped wood into stripped wood
+  planks: true # Turns logs or wood into planks
+  slabs: true # Turns logs/wood/planks into slabs
+  stairs: true # Turns logs/wood/planks into stairs
+  fence: true # Turns logs/wood/planks into fences
+  fence-gate: true # Turns logs/wood/planks into fence gates
+  door: true # Turns logs/wood/planks into doors
+  trapdoor: true # Turns logs/wood/planks into trapdoors
+  button: true # Turns logs/wood/planks into buttons
+  boat: true # Turns logs/wood/planks into boats
