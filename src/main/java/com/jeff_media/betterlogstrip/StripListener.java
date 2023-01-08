@@ -1,6 +1,6 @@
 package com.jeff_media.betterlogstrip;
 
-import de.jeff_media.jefflib.data.WoodType;
+import com.jeff_media.jefflib.data.WoodType;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
@@ -22,7 +22,15 @@ public class StripListener implements Listener {
         if(type == null) return;
         if(type.getLog() != clickedBlock.getType() && type.getWood() != clickedBlock.getType()) return;
         if(!isAxe(event.getItem())) return;
-        if(!main.getConfig().getBoolean("prevent-stripping",true)) return;
+
+
+
+        if (!main.getConfig().getBoolean("prevent-stripping"))
+            return;
+
+        if (main.getConfig().getBoolean("allow-shift-right-click-stripping") && event.getPlayer().isSneaking())
+            return;
+
         event.setCancelled(true);
     }
 
