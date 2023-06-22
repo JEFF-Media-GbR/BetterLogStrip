@@ -1,6 +1,6 @@
 package com.jeff_media.betterlogstrip;
 
-import de.jeff_media.jefflib.data.WoodType;
+import com.jeff_media.jefflib.data.WoodType;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;

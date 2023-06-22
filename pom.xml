@@ -6,7 +6,7 @@
 
     <groupId>com.jeff_media</groupId>
     <artifactId>BetterLogStrip</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -34,7 +34,7 @@
                     <minimizeJar>true</minimizeJar>
                     <relocations>
                         <relocation>
-                            <pattern>de.jeff_media.jefflib</pattern>
+                            <pattern>com.jeff_media.jefflib</pattern>
                             <shadedPattern>com.jeff_media.betterlogstrip.jefflib</shadedPattern>
                         </relocation>
                     </relocations>
@@ -59,9 +59,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>de.jeff_media</groupId>
+            <groupId>com.jeff_media</groupId>
             <artifactId>JeffLib</artifactId>
-            <version>9.0.0-SNAPSHOT</version>
+            <version>12.5.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
