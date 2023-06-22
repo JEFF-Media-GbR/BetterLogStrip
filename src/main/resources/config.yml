@@ -4,6 +4,8 @@
 
 # When enabled, players can no longer strip logs using right-click
 prevent-stripping: true
+# When enabled, players can strip logs using shift + right-click even if above option is enabled
+allow-shift-right-click-stripping: false
 
 crafting:
   stripped-log: true # Turns 2 logs above each other into 2 stripped log

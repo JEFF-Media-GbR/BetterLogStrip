@@ -78,93 +78,98 @@ public class RecipeManager {
     public static void registerRecipes() {
         //System.out.println(0);
         for(WoodType type : WoodType.values()) {
-            if(main.getConfig().getBoolean("crafting.stripped-log",false)) {
-                //System.out.println(1);
-                ShapedRecipe recipe = new ShapedRecipe(getKey(STRIPPED_LOG,type),new ItemStack(type.getStrippedLog(),2));
-                recipe.shape("X","X");
-                recipe.setIngredient('X',type.getLog());
-                Bukkit.addRecipe(recipe);
-                //System.out.println("Registered recipe " + recipe);
-            }
-            if(main.getConfig().getBoolean("crafting.stripped-wood",false)) {
-                //System.out.println(2);
-                ShapedRecipe recipe = new ShapedRecipe(getKey(STRIPPED_WOOD,type), new ItemStack(type.getStrippedWood(),2));
-                recipe.shape("X","X");
-                recipe.setIngredient('X',type.getWood());
-                Bukkit.addRecipe(recipe);
-            }
-            if(main.getConfig().getBoolean("stonecutter.stripped-log",false)) {
-                //System.out.println(3);
-                registerStonecuttingRecipe(getKey(CUTTER_STRIPPED_LOG,type),type.getLog(),type.getStrippedLog(),1);
-            }
-            if(main.getConfig().getBoolean("stonecutter.stripped-wood",false)) {
-                registerStonecuttingRecipe(getKey(CUTTER_STRIPPED_WOOD,type),type.getWood(),type.getStrippedWood(),1);
-            }
-            if(main.getConfig().getBoolean("stonecutter.planks",false)) {
-                registerStonecuttingRecipe(getKey(CUTTER_PLANKS1,type),type.getLog(),type.getPlanks(),4);
-                registerStonecuttingRecipe(getKey(CUTTER_PLANKS2,type),type.getWood(),type.getPlanks(),4);
-                registerStonecuttingRecipe(getKey(CUTTER_PLANKS3,type),type.getStrippedLog(),type.getPlanks(),4);
-                registerStonecuttingRecipe(getKey(CUTTER_PLANKS4,type),type.getStrippedWood(),type.getPlanks(),4);
-            }
-            if(main.getConfig().getBoolean("stonecutter.slabs",false)) {
-                registerStonecuttingRecipe(getKey(CUTTER_SLABS1,type),type.getLog(),type.getSlab(), 8);
-                registerStonecuttingRecipe(getKey(CUTTER_SLABS2,type),type.getWood(),type.getSlab(), 8);
-                registerStonecuttingRecipe(getKey(CUTTER_SLABS3,type),type.getStrippedLog(),type.getSlab(), 8);
-                registerStonecuttingRecipe(getKey(CUTTER_SLABS4,type),type.getStrippedWood(),type.getSlab(), 8);
-                registerStonecuttingRecipe(getKey(CUTTER_SLABS5,type),type.getPlanks(), type.getSlab(),2);
-            }
-            if(main.getConfig().getBoolean("stonecutter.stairs",false)) {
-                registerStonecuttingRecipe(getKey(CUTTER_STAIRS1,type),type.getLog(),type.getStairs(), 4);
-                registerStonecuttingRecipe(getKey(CUTTER_STAIRS2,type),type.getWood(),type.getStairs(), 4);
-                registerStonecuttingRecipe(getKey(CUTTER_STAIRS3,type),type.getStrippedLog(),type.getStairs(), 4);
-                registerStonecuttingRecipe(getKey(CUTTER_STAIRS4,type),type.getStrippedWood(),type.getStairs(), 4);
-                registerStonecuttingRecipe(getKey(CUTTER_STAIRS5,type),type.getPlanks(), type.getStairs(),1);
-            }
-            if(main.getConfig().getBoolean("stonecutter.fence",false)) {
-                registerStonecuttingRecipe(getKey(CUTTER_FENCE1,type),type.getLog(),type.getFence(), 4);
-                registerStonecuttingRecipe(getKey(CUTTER_FENCE2,type),type.getWood(),type.getFence(), 4);
-                registerStonecuttingRecipe(getKey(CUTTER_FENCE3,type),type.getStrippedLog(),type.getFence(), 4);
-                registerStonecuttingRecipe(getKey(CUTTER_FENCE4,type),type.getStrippedWood(),type.getFence(), 4);
-                registerStonecuttingRecipe(getKey(CUTTER_FENCE5,type),type.getPlanks(), type.getFence(),1);
-            }
-            if(main.getConfig().getBoolean("stonecutter.fence-gate",false)) {
-                registerStonecuttingRecipe(getKey(CUTTER_FENCEGATE1,type),type.getLog(),type.getFenceGate(), 4);
-                registerStonecuttingRecipe(getKey(CUTTER_FENCEGATE2,type),type.getWood(),type.getFenceGate(), 4);
-                registerStonecuttingRecipe(getKey(CUTTER_FENCEGATE3,type),type.getStrippedLog(),type.getFenceGate(), 4);
-                registerStonecuttingRecipe(getKey(CUTTER_FENCEGATE4,type),type.getStrippedWood(),type.getFenceGate(), 4);
-                registerStonecuttingRecipe(getKey(CUTTER_FENCEGATE5,type),type.getPlanks(), type.getFenceGate(),1);
-            }
-            if(main.getConfig().getBoolean("stonecutter.door",false)) {
-                registerStonecuttingRecipe(getKey(CUTTER_DOOR1,type),type.getLog(),type.getDoor(), 4);
-                registerStonecuttingRecipe(getKey(CUTTER_DOOR2,type),type.getWood(),type.getDoor(), 4);
-                registerStonecuttingRecipe(getKey(CUTTER_DOOR3,type),type.getStrippedLog(),type.getDoor(), 4);
-                registerStonecuttingRecipe(getKey(CUTTER_DOOR4,type),type.getStrippedWood(),type.getDoor(), 4);
-                registerStonecuttingRecipe(getKey(CUTTER_DOOR5,type),type.getPlanks(), type.getDoor(),1);
-            }
-            if(main.getConfig().getBoolean("stonecutter.trapdoor",false)) {
-                registerStonecuttingRecipe(getKey(CUTTER_TRAPDOOR1,type),type.getLog(),type.getTrapdoor(), 4);
-                registerStonecuttingRecipe(getKey(CUTTER_TRAPDOOR2,type),type.getWood(),type.getTrapdoor(), 4);
-                registerStonecuttingRecipe(getKey(CUTTER_TRAPDOOR3,type),type.getStrippedLog(),type.getTrapdoor(), 4);
-                registerStonecuttingRecipe(getKey(CUTTER_TRAPDOOR4,type),type.getStrippedWood(),type.getTrapdoor(), 4);
-                registerStonecuttingRecipe(getKey(CUTTER_TRAPDOOR5,type),type.getPlanks(), type.getTrapdoor(),1);
-            }
-            if(main.getConfig().getBoolean("stonecutter.button",false)) {
-                registerStonecuttingRecipe(getKey(CUTTER_BUTTON1,type),type.getLog(),type.getButton(), 4);
-                registerStonecuttingRecipe(getKey(CUTTER_BUTTON2,type),type.getWood(),type.getButton(), 4);
-                registerStonecuttingRecipe(getKey(CUTTER_BUTTON3,type),type.getStrippedLog(),type.getButton(), 4);
-                registerStonecuttingRecipe(getKey(CUTTER_BUTTON4,type),type.getStrippedWood(),type.getButton(), 4);
-                registerStonecuttingRecipe(getKey(CUTTER_BUTTON5,type),type.getPlanks(), type.getButton(),1);
-            }
-            if(main.getConfig().getBoolean("stonecutter.boat",false)) {
-                if(type.getBoat() != null) {
-                    registerStonecuttingRecipe(getKey(CUTTER_BOAT1, type), type.getLog(), type.getBoat(), 4);
-                    registerStonecuttingRecipe(getKey(CUTTER_BOAT2, type), type.getWood(), type.getBoat(), 4);
-                    registerStonecuttingRecipe(getKey(CUTTER_BOAT3, type), type.getStrippedLog(), type.getBoat(), 4);
-                    registerStonecuttingRecipe(getKey(CUTTER_BOAT4, type), type.getStrippedWood(), type.getBoat(), 4);
-                    registerStonecuttingRecipe(getKey(CUTTER_BOAT5, type), type.getPlanks(), type.getBoat(), 1);
-                }
-            }
+			try {
+				if(type.getLog() == null) continue;
+				if (main.getConfig().getBoolean("crafting.stripped-log", false)) {
+					//System.out.println(1);
+					ShapedRecipe recipe = new ShapedRecipe(getKey(STRIPPED_LOG, type), new ItemStack(type.getStrippedLog(), 2));
+					recipe.shape("X", "X");
+					recipe.setIngredient('X', type.getLog());
+					Bukkit.addRecipe(recipe);
+					//System.out.println("Registered recipe " + recipe);
+				}
+				if (main.getConfig().getBoolean("crafting.stripped-wood", false)) {
+					//System.out.println(2);
+					ShapedRecipe recipe = new ShapedRecipe(getKey(STRIPPED_WOOD, type), new ItemStack(type.getStrippedWood(), 2));
+					recipe.shape("X", "X");
+					recipe.setIngredient('X', type.getWood());
+					Bukkit.addRecipe(recipe);
+				}
+				if (main.getConfig().getBoolean("stonecutter.stripped-log", false)) {
+					//System.out.println(3);
+					registerStonecuttingRecipe(getKey(CUTTER_STRIPPED_LOG, type), type.getLog(), type.getStrippedLog(), 1);
+				}
+				if (main.getConfig().getBoolean("stonecutter.stripped-wood", false)) {
+					registerStonecuttingRecipe(getKey(CUTTER_STRIPPED_WOOD, type), type.getWood(), type.getStrippedWood(), 1);
+				}
+				if (main.getConfig().getBoolean("stonecutter.planks", false)) {
+					registerStonecuttingRecipe(getKey(CUTTER_PLANKS1, type), type.getLog(), type.getPlanks(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_PLANKS2, type), type.getWood(), type.getPlanks(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_PLANKS3, type), type.getStrippedLog(), type.getPlanks(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_PLANKS4, type), type.getStrippedWood(), type.getPlanks(), 4);
+				}
+				if (main.getConfig().getBoolean("stonecutter.slabs", false)) {
+					registerStonecuttingRecipe(getKey(CUTTER_SLABS1, type), type.getLog(), type.getSlab(), 8);
+					registerStonecuttingRecipe(getKey(CUTTER_SLABS2, type), type.getWood(), type.getSlab(), 8);
+					registerStonecuttingRecipe(getKey(CUTTER_SLABS3, type), type.getStrippedLog(), type.getSlab(), 8);
+					registerStonecuttingRecipe(getKey(CUTTER_SLABS4, type), type.getStrippedWood(), type.getSlab(), 8);
+					registerStonecuttingRecipe(getKey(CUTTER_SLABS5, type), type.getPlanks(), type.getSlab(), 2);
+				}
+				if (main.getConfig().getBoolean("stonecutter.stairs", false)) {
+					registerStonecuttingRecipe(getKey(CUTTER_STAIRS1, type), type.getLog(), type.getStairs(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_STAIRS2, type), type.getWood(), type.getStairs(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_STAIRS3, type), type.getStrippedLog(), type.getStairs(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_STAIRS4, type), type.getStrippedWood(), type.getStairs(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_STAIRS5, type), type.getPlanks(), type.getStairs(), 1);
+				}
+				if (main.getConfig().getBoolean("stonecutter.fence", false)) {
+					registerStonecuttingRecipe(getKey(CUTTER_FENCE1, type), type.getLog(), type.getFence(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_FENCE2, type), type.getWood(), type.getFence(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_FENCE3, type), type.getStrippedLog(), type.getFence(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_FENCE4, type), type.getStrippedWood(), type.getFence(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_FENCE5, type), type.getPlanks(), type.getFence(), 1);
+				}
+				if (main.getConfig().getBoolean("stonecutter.fence-gate", false)) {
+					registerStonecuttingRecipe(getKey(CUTTER_FENCEGATE1, type), type.getLog(), type.getFenceGate(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_FENCEGATE2, type), type.getWood(), type.getFenceGate(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_FENCEGATE3, type), type.getStrippedLog(), type.getFenceGate(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_FENCEGATE4, type), type.getStrippedWood(), type.getFenceGate(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_FENCEGATE5, type), type.getPlanks(), type.getFenceGate(), 1);
+				}
+				if (main.getConfig().getBoolean("stonecutter.door", false)) {
+					registerStonecuttingRecipe(getKey(CUTTER_DOOR1, type), type.getLog(), type.getDoor(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_DOOR2, type), type.getWood(), type.getDoor(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_DOOR3, type), type.getStrippedLog(), type.getDoor(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_DOOR4, type), type.getStrippedWood(), type.getDoor(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_DOOR5, type), type.getPlanks(), type.getDoor(), 1);
+				}
+				if (main.getConfig().getBoolean("stonecutter.trapdoor", false)) {
+					registerStonecuttingRecipe(getKey(CUTTER_TRAPDOOR1, type), type.getLog(), type.getTrapdoor(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_TRAPDOOR2, type), type.getWood(), type.getTrapdoor(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_TRAPDOOR3, type), type.getStrippedLog(), type.getTrapdoor(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_TRAPDOOR4, type), type.getStrippedWood(), type.getTrapdoor(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_TRAPDOOR5, type), type.getPlanks(), type.getTrapdoor(), 1);
+				}
+				if (main.getConfig().getBoolean("stonecutter.button", false)) {
+					registerStonecuttingRecipe(getKey(CUTTER_BUTTON1, type), type.getLog(), type.getButton(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_BUTTON2, type), type.getWood(), type.getButton(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_BUTTON3, type), type.getStrippedLog(), type.getButton(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_BUTTON4, type), type.getStrippedWood(), type.getButton(), 4);
+					registerStonecuttingRecipe(getKey(CUTTER_BUTTON5, type), type.getPlanks(), type.getButton(), 1);
+				}
+				if (main.getConfig().getBoolean("stonecutter.boat", false)) {
+					if (type.getBoat() != null) {
+						registerStonecuttingRecipe(getKey(CUTTER_BOAT1, type), type.getLog(), type.getBoat(), 4);
+						registerStonecuttingRecipe(getKey(CUTTER_BOAT2, type), type.getWood(), type.getBoat(), 4);
+						registerStonecuttingRecipe(getKey(CUTTER_BOAT3, type), type.getStrippedLog(), type.getBoat(), 4);
+						registerStonecuttingRecipe(getKey(CUTTER_BOAT4, type), type.getStrippedWood(), type.getBoat(), 4);
+						registerStonecuttingRecipe(getKey(CUTTER_BOAT5, type), type.getPlanks(), type.getBoat(), 1);
+					}
+				}
 
+			} catch (Exception ignored) {
+
+			}
         }
     }
 
